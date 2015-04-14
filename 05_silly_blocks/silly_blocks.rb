@@ -1,11 +1,19 @@
 def reverser 
-	yield.reverse
+	words = yield
+	output = []
+
+	words.split.map do |word|
+		output << word.reverse
+	end
+	output.join(" ")
 end
 
-def adder(var)
-	var
+def adder(num = 1)
+	yield + num
 end
 
-def repeater(var)
-	var
+def repeater(num = 1)
+	num.times do
+		yield
+	end
 end
